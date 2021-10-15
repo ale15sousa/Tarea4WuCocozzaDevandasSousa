@@ -5727,7 +5727,6 @@ void main(void) {
     LATDbits.LD2 = 0;
     LATDbits.LD3 = 0;
     LATDbits.LD4 = 0;
-    LATDbits.LD5 = 0;
 
 
 
@@ -5775,7 +5774,6 @@ void __attribute__((picinterrupt(("")))) isr(void){
 
     if (INTCONbits.INT0IF == 1){
         stop = ~stop;
-        LATDbits.LD5 = ~LATDbits.LD5;
         INTCONbits.INT0IF = 0;
     }
 

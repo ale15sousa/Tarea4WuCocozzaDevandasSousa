@@ -810,231 +810,225 @@ Version 4.0 HI-TECH Software Intermediate Code
 "111
 [; ;mainTarea4.c: 111:     LATDbits.LD4 = 0;
 [e = . . _LATDbits 1 4 -> -> 0 `i `uc ]
-"112
-[; ;mainTarea4.c: 112:     LATDbits.LD5 = 0;
-[e = . . _LATDbits 1 5 -> -> 0 `i `uc ]
-"118
-[; ;mainTarea4.c: 118:     RCONbits.IPEN = 1;
+"117
+[; ;mainTarea4.c: 117:     RCONbits.IPEN = 1;
 [e = . . _RCONbits 5 7 -> -> 1 `i `uc ]
-"119
-[; ;mainTarea4.c: 119:     INTCONbits.GIEH = 1;
+"118
+[; ;mainTarea4.c: 118:     INTCONbits.GIEH = 1;
 [e = . . _INTCONbits 2 2 -> -> 1 `i `uc ]
-"120
-[; ;mainTarea4.c: 120:     INTCONbits.GIEL = 1;
+"119
+[; ;mainTarea4.c: 119:     INTCONbits.GIEL = 1;
 [e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
-"122
-[; ;mainTarea4.c: 122:     INTCONbits.TMR0IE = 1;
+"121
+[; ;mainTarea4.c: 121:     INTCONbits.TMR0IE = 1;
 [e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
-"124
-[; ;mainTarea4.c: 124:     INTCON2bits.INTEDG0 = 1;
+"123
+[; ;mainTarea4.c: 123:     INTCON2bits.INTEDG0 = 1;
 [e = . . _INTCON2bits 1 6 -> -> 1 `i `uc ]
-"125
-[; ;mainTarea4.c: 125:     INTCON2bits.INTEDG1 = 1;
+"124
+[; ;mainTarea4.c: 124:     INTCON2bits.INTEDG1 = 1;
 [e = . . _INTCON2bits 1 5 -> -> 1 `i `uc ]
-"126
-[; ;mainTarea4.c: 126:     INTCON2bits.INTEDG2 = 1;
+"125
+[; ;mainTarea4.c: 125:     INTCON2bits.INTEDG2 = 1;
 [e = . . _INTCON2bits 1 4 -> -> 1 `i `uc ]
-"128
-[; ;mainTarea4.c: 128:     INTCONbits.INT0IE = 1;
+"127
+[; ;mainTarea4.c: 127:     INTCONbits.INT0IE = 1;
 [e = . . _INTCONbits 0 4 -> -> 1 `i `uc ]
-"129
-[; ;mainTarea4.c: 129:     INTCON3bits.INT1IE = 1;
+"128
+[; ;mainTarea4.c: 128:     INTCON3bits.INT1IE = 1;
 [e = . . _INTCON3bits 0 3 -> -> 1 `i `uc ]
-"130
-[; ;mainTarea4.c: 130:     INTCON3bits.INT2IE = 1;
+"129
+[; ;mainTarea4.c: 129:     INTCON3bits.INT2IE = 1;
 [e = . . _INTCON3bits 0 4 -> -> 1 `i `uc ]
-"136
-[; ;mainTarea4.c: 136:     T0CONbits.T08BIT = 0;
+"135
+[; ;mainTarea4.c: 135:     T0CONbits.T08BIT = 0;
 [e = . . _T0CONbits 0 4 -> -> 0 `i `uc ]
-"137
-[; ;mainTarea4.c: 137:     T0CONbits.T0CS = 0;
+"136
+[; ;mainTarea4.c: 136:     T0CONbits.T0CS = 0;
 [e = . . _T0CONbits 0 3 -> -> 0 `i `uc ]
-"138
-[; ;mainTarea4.c: 138:     T0CONbits.T0SE = 0;
+"137
+[; ;mainTarea4.c: 137:     T0CONbits.T0SE = 0;
 [e = . . _T0CONbits 0 2 -> -> 0 `i `uc ]
-"139
-[; ;mainTarea4.c: 139:     T0CONbits.PSA = 1;
+"138
+[; ;mainTarea4.c: 138:     T0CONbits.PSA = 1;
 [e = . . _T0CONbits 0 1 -> -> 1 `i `uc ]
-"141
-[; ;mainTarea4.c: 141:     T0CONbits.TMR0ON = 1;
+"140
+[; ;mainTarea4.c: 140:     T0CONbits.TMR0ON = 1;
 [e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
-"147
-[; ;mainTarea4.c: 147:     while(1){
+"146
+[; ;mainTarea4.c: 146:     while(1){
 [e :U 369 ]
 {
-"148
-[; ;mainTarea4.c: 148:     }
+"147
+[; ;mainTarea4.c: 147:     }
 }
 [e :U 368 ]
 [e $U 369  ]
 [e :U 370 ]
-"150
-[; ;mainTarea4.c: 150: }
+"149
+[; ;mainTarea4.c: 149: }
 [e :UE 367 ]
 }
 [v $root$_isr `(v ~T0 @X0 0 e ]
-"152
-[; ;mainTarea4.c: 152: void __attribute__((picinterrupt(("")))) isr(void){
+"151
+[; ;mainTarea4.c: 151: void __attribute__((picinterrupt(("")))) isr(void){
 [v _isr `(v ~T36 @X0 1 ef ]
 {
 [e :U _isr ]
 [f ]
-"158
-[; ;mainTarea4.c: 158:     if (INTCONbits.INT0IF == 1){
+"157
+[; ;mainTarea4.c: 157:     if (INTCONbits.INT0IF == 1){
 [e $ ! == -> . . _INTCONbits 0 1 `i -> 1 `i 372  ]
 {
-"159
-[; ;mainTarea4.c: 159:         stop = ~stop;
+"158
+[; ;mainTarea4.c: 158:         stop = ~stop;
 [e = _stop ~ _stop ]
-"160
-[; ;mainTarea4.c: 160:         LATDbits.LD5 = ~LATDbits.LD5;
-[e = . . _LATDbits 1 5 -> ~ -> . . _LATDbits 1 5 `i `uc ]
-"161
-[; ;mainTarea4.c: 161:         INTCONbits.INT0IF = 0;
+"159
+[; ;mainTarea4.c: 159:         INTCONbits.INT0IF = 0;
 [e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
-"162
-[; ;mainTarea4.c: 162:     }
+"160
+[; ;mainTarea4.c: 160:     }
 }
 [e :U 372 ]
-"168
-[; ;mainTarea4.c: 168:     if (INTCONbits.TMR0IF == 1){
+"166
+[; ;mainTarea4.c: 166:     if (INTCONbits.TMR0IF == 1){
 [e $ ! == -> . . _INTCONbits 0 2 `i -> 1 `i 373  ]
 {
-"169
-[; ;mainTarea4.c: 169:         timer++;
+"167
+[; ;mainTarea4.c: 167:         timer++;
 [e ++ _timer -> 1 `i ]
-"170
-[; ;mainTarea4.c: 170:         INTCONbits.TMR0IF = 0;
+"168
+[; ;mainTarea4.c: 168:         INTCONbits.TMR0IF = 0;
 [e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-"172
-[; ;mainTarea4.c: 172:         if (timer >= 152) {
+"170
+[; ;mainTarea4.c: 170:         if (timer >= 152) {
 [e $ ! >= _timer -> 152 `i 374  ]
 {
-"174
-[; ;mainTarea4.c: 174:             if (stop == 0){
+"172
+[; ;mainTarea4.c: 172:             if (stop == 0){
 [e $ ! == _stop -> 0 `i 375  ]
 {
-"176
-[; ;mainTarea4.c: 176:                 if (cont >= 0) {
+"174
+[; ;mainTarea4.c: 174:                 if (cont >= 0) {
 [e $ ! >= _cont -> 0 `i 376  ]
 {
-"177
-[; ;mainTarea4.c: 177:                     LATDbits.LD4 = 0;
+"175
+[; ;mainTarea4.c: 175:                     LATDbits.LD4 = 0;
 [e = . . _LATDbits 1 4 -> -> 0 `i `uc ]
-"178
-[; ;mainTarea4.c: 178:                     switch(cont){
+"176
+[; ;mainTarea4.c: 176:                     switch(cont){
 [e $U 378  ]
 {
-"179
-[; ;mainTarea4.c: 179:                         case 0:
+"177
+[; ;mainTarea4.c: 177:                         case 0:
 [e :U 379 ]
+"178
+[; ;mainTarea4.c: 178:                             LATDbits.LD0 = 0;
+[e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
+"179
+[; ;mainTarea4.c: 179:                             LATDbits.LD1 = 0;
+[e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
 "180
-[; ;mainTarea4.c: 180:                             LATDbits.LD0 = 0;
-[e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
+[; ;mainTarea4.c: 180:                             LATDbits.LD2 = 0;
+[e = . . _LATDbits 1 2 -> -> 0 `i `uc ]
 "181
-[; ;mainTarea4.c: 181:                             LATDbits.LD1 = 0;
-[e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
+[; ;mainTarea4.c: 181:                             LATDbits.LD3 = 0;
+[e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
 "182
-[; ;mainTarea4.c: 182:                             LATDbits.LD2 = 0;
-[e = . . _LATDbits 1 2 -> -> 0 `i `uc ]
+[; ;mainTarea4.c: 182:                             break;
+[e $U 377  ]
 "183
-[; ;mainTarea4.c: 183:                             LATDbits.LD3 = 0;
-[e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
-"184
-[; ;mainTarea4.c: 184:                             break;
-[e $U 377  ]
-"185
-[; ;mainTarea4.c: 185:                         case 1:
+[; ;mainTarea4.c: 183:                         case 1:
 [e :U 380 ]
+"184
+[; ;mainTarea4.c: 184:                             LATDbits.LD0 = 1;
+[e = . . _LATDbits 1 0 -> -> 1 `i `uc ]
+"185
+[; ;mainTarea4.c: 185:                             LATDbits.LD1 = 0;
+[e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
 "186
-[; ;mainTarea4.c: 186:                             LATDbits.LD0 = 1;
-[e = . . _LATDbits 1 0 -> -> 1 `i `uc ]
+[; ;mainTarea4.c: 186:                             LATDbits.LD2 = 0;
+[e = . . _LATDbits 1 2 -> -> 0 `i `uc ]
 "187
-[; ;mainTarea4.c: 187:                             LATDbits.LD1 = 0;
-[e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
+[; ;mainTarea4.c: 187:                             LATDbits.LD3 = 0;
+[e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
 "188
-[; ;mainTarea4.c: 188:                             LATDbits.LD2 = 0;
-[e = . . _LATDbits 1 2 -> -> 0 `i `uc ]
+[; ;mainTarea4.c: 188:                             break;
+[e $U 377  ]
 "189
-[; ;mainTarea4.c: 189:                             LATDbits.LD3 = 0;
-[e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
-"190
-[; ;mainTarea4.c: 190:                             break;
-[e $U 377  ]
-"191
-[; ;mainTarea4.c: 191:                         case 2:
+[; ;mainTarea4.c: 189:                         case 2:
 [e :U 381 ]
+"190
+[; ;mainTarea4.c: 190:                             LATDbits.LD0 = 0;
+[e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
+"191
+[; ;mainTarea4.c: 191:                             LATDbits.LD1 = 1;
+[e = . . _LATDbits 1 1 -> -> 1 `i `uc ]
 "192
-[; ;mainTarea4.c: 192:                             LATDbits.LD0 = 0;
-[e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
+[; ;mainTarea4.c: 192:                             LATDbits.LD2 = 0;
+[e = . . _LATDbits 1 2 -> -> 0 `i `uc ]
 "193
-[; ;mainTarea4.c: 193:                             LATDbits.LD1 = 1;
-[e = . . _LATDbits 1 1 -> -> 1 `i `uc ]
+[; ;mainTarea4.c: 193:                             LATDbits.LD3 = 0;
+[e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
 "194
-[; ;mainTarea4.c: 194:                             LATDbits.LD2 = 0;
-[e = . . _LATDbits 1 2 -> -> 0 `i `uc ]
+[; ;mainTarea4.c: 194:                             break;
+[e $U 377  ]
 "195
-[; ;mainTarea4.c: 195:                             LATDbits.LD3 = 0;
-[e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
-"196
-[; ;mainTarea4.c: 196:                             break;
-[e $U 377  ]
-"197
-[; ;mainTarea4.c: 197:                         case 3:
+[; ;mainTarea4.c: 195:                         case 3:
 [e :U 382 ]
+"196
+[; ;mainTarea4.c: 196:                             LATDbits.LD0 = 0;
+[e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
+"197
+[; ;mainTarea4.c: 197:                             LATDbits.LD1 = 0;
+[e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
 "198
-[; ;mainTarea4.c: 198:                             LATDbits.LD0 = 0;
-[e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
+[; ;mainTarea4.c: 198:                             LATDbits.LD2 = 1;
+[e = . . _LATDbits 1 2 -> -> 1 `i `uc ]
 "199
-[; ;mainTarea4.c: 199:                             LATDbits.LD1 = 0;
-[e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
-"200
-[; ;mainTarea4.c: 200:                             LATDbits.LD2 = 1;
-[e = . . _LATDbits 1 2 -> -> 1 `i `uc ]
-"201
-[; ;mainTarea4.c: 201:                             LATDbits.LD3 = 0;
+[; ;mainTarea4.c: 199:                             LATDbits.LD3 = 0;
 [e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
-"202
-[; ;mainTarea4.c: 202:                             break;
+"200
+[; ;mainTarea4.c: 200:                             break;
 [e $U 377  ]
-"203
-[; ;mainTarea4.c: 203:                         case 4:
+"201
+[; ;mainTarea4.c: 201:                         case 4:
 [e :U 383 ]
-"204
-[; ;mainTarea4.c: 204:                             LATDbits.LD0 = 0;
+"202
+[; ;mainTarea4.c: 202:                             LATDbits.LD0 = 0;
 [e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
-"205
-[; ;mainTarea4.c: 205:                             LATDbits.LD1 = 0;
+"203
+[; ;mainTarea4.c: 203:                             LATDbits.LD1 = 0;
 [e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
-"206
-[; ;mainTarea4.c: 206:                             LATDbits.LD2 = 0;
+"204
+[; ;mainTarea4.c: 204:                             LATDbits.LD2 = 0;
 [e = . . _LATDbits 1 2 -> -> 0 `i `uc ]
+"205
+[; ;mainTarea4.c: 205:                             LATDbits.LD3 = 1;
+[e = . . _LATDbits 1 3 -> -> 1 `i `uc ]
+"206
+[; ;mainTarea4.c: 206:                             break;
+[e $U 377  ]
 "207
-[; ;mainTarea4.c: 207:                             LATDbits.LD3 = 1;
-[e = . . _LATDbits 1 3 -> -> 1 `i `uc ]
-"208
-[; ;mainTarea4.c: 208:                             break;
-[e $U 377  ]
-"209
-[; ;mainTarea4.c: 209:                         default:
+[; ;mainTarea4.c: 207:                         default:
 [e :U 384 ]
-"210
-[; ;mainTarea4.c: 210:                             LATDbits.LD0 = 1;
+"208
+[; ;mainTarea4.c: 208:                             LATDbits.LD0 = 1;
 [e = . . _LATDbits 1 0 -> -> 1 `i `uc ]
-"211
-[; ;mainTarea4.c: 211:                             LATDbits.LD1 = 1;
+"209
+[; ;mainTarea4.c: 209:                             LATDbits.LD1 = 1;
 [e = . . _LATDbits 1 1 -> -> 1 `i `uc ]
-"212
-[; ;mainTarea4.c: 212:                             LATDbits.LD2 = 1;
+"210
+[; ;mainTarea4.c: 210:                             LATDbits.LD2 = 1;
 [e = . . _LATDbits 1 2 -> -> 1 `i `uc ]
-"213
-[; ;mainTarea4.c: 213:                             LATDbits.LD3 = 1;
+"211
+[; ;mainTarea4.c: 211:                             LATDbits.LD3 = 1;
 [e = . . _LATDbits 1 3 -> -> 1 `i `uc ]
-"214
-[; ;mainTarea4.c: 214:                             break;
+"212
+[; ;mainTarea4.c: 212:                             break;
 [e $U 377  ]
-"215
-[; ;mainTarea4.c: 215:                        }
+"213
+[; ;mainTarea4.c: 213:                        }
 }
 [e $U 377  ]
 [e :U 378 ]
@@ -1045,101 +1039,101 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 4 `i 383
  384 ]
 [e :U 377 ]
-"216
-[; ;mainTarea4.c: 216:                     }
+"214
+[; ;mainTarea4.c: 214:                     }
 }
 [e :U 376 ]
-"218
-[; ;mainTarea4.c: 218:             }
+"216
+[; ;mainTarea4.c: 216:             }
 }
 [e :U 375 ]
-"219
-[; ;mainTarea4.c: 219:         timer = 0;
+"217
+[; ;mainTarea4.c: 217:         timer = 0;
 [e = _timer -> 0 `i ]
-"222
-[; ;mainTarea4.c: 222:     }
+"220
+[; ;mainTarea4.c: 220:     }
 }
 [e :U 374 ]
-"227
-[; ;mainTarea4.c: 227:         if (INTCON3bits.INT1IF == 1 ){
+"225
+[; ;mainTarea4.c: 225:         if (INTCON3bits.INT1IF == 1 ){
 [e $ ! == -> . . _INTCON3bits 0 0 `i -> 1 `i 385  ]
 {
-"228
-[; ;mainTarea4.c: 228:             if (stop == 0) {
+"226
+[; ;mainTarea4.c: 226:             if (stop == 0) {
 [e $ ! == _stop -> 0 `i 386  ]
 {
-"229
-[; ;mainTarea4.c: 229:             cont++;
+"227
+[; ;mainTarea4.c: 227:             cont++;
 [e ++ _cont -> 1 `i ]
-"230
-[; ;mainTarea4.c: 230:             }
+"228
+[; ;mainTarea4.c: 228:             }
 }
 [e :U 386 ]
-"231
-[; ;mainTarea4.c: 231:             INTCON3bits.INT1IF = 0;
+"229
+[; ;mainTarea4.c: 229:             INTCON3bits.INT1IF = 0;
 [e = . . _INTCON3bits 0 0 -> -> 0 `i `uc ]
-"232
-[; ;mainTarea4.c: 232:         }
+"230
+[; ;mainTarea4.c: 230:         }
 }
 [e :U 385 ]
-"237
-[; ;mainTarea4.c: 237:         if (INTCON3bits.INT2IF == 1 ){
+"235
+[; ;mainTarea4.c: 235:         if (INTCON3bits.INT2IF == 1 ){
 [e $ ! == -> . . _INTCON3bits 0 1 `i -> 1 `i 387  ]
 {
-"238
-[; ;mainTarea4.c: 238:             if (stop == 0) {
+"236
+[; ;mainTarea4.c: 236:             if (stop == 0) {
 [e $ ! == _stop -> 0 `i 388  ]
 {
-"239
-[; ;mainTarea4.c: 239:             cont--;
+"237
+[; ;mainTarea4.c: 237:             cont--;
 [e -- _cont -> 1 `i ]
-"240
-[; ;mainTarea4.c: 240:             }
+"238
+[; ;mainTarea4.c: 238:             }
 }
 [e :U 388 ]
-"241
-[; ;mainTarea4.c: 241:             INTCON3bits.INT2IF = 0;
+"239
+[; ;mainTarea4.c: 239:             INTCON3bits.INT2IF = 0;
 [e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
-"242
-[; ;mainTarea4.c: 242:         }
+"240
+[; ;mainTarea4.c: 240:         }
 }
 [e :U 387 ]
-"244
-[; ;mainTarea4.c: 244:   }
+"242
+[; ;mainTarea4.c: 242:   }
 }
 [e :U 373 ]
-"249
-[; ;mainTarea4.c: 249: if (stop == 0) {
+"247
+[; ;mainTarea4.c: 247: if (stop == 0) {
 [e $ ! == _stop -> 0 `i 389  ]
 {
-"250
-[; ;mainTarea4.c: 250:     if (cont < 0){
+"248
+[; ;mainTarea4.c: 248:     if (cont < 0){
 [e $ ! < _cont -> 0 `i 390  ]
 {
-"251
-[; ;mainTarea4.c: 251:         LATDbits.LD0 = 0;
+"249
+[; ;mainTarea4.c: 249:         LATDbits.LD0 = 0;
 [e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
-"252
-[; ;mainTarea4.c: 252:         LATDbits.LD1 = 0;
+"250
+[; ;mainTarea4.c: 250:         LATDbits.LD1 = 0;
 [e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
-"253
-[; ;mainTarea4.c: 253:         LATDbits.LD2 = 0;
+"251
+[; ;mainTarea4.c: 251:         LATDbits.LD2 = 0;
 [e = . . _LATDbits 1 2 -> -> 0 `i `uc ]
-"254
-[; ;mainTarea4.c: 254:         LATDbits.LD3 = 0;
+"252
+[; ;mainTarea4.c: 252:         LATDbits.LD3 = 0;
 [e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
-"255
-[; ;mainTarea4.c: 255:         LATDbits.LD4 = 1;
+"253
+[; ;mainTarea4.c: 253:         LATDbits.LD4 = 1;
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
-"256
-[; ;mainTarea4.c: 256:     }
+"254
+[; ;mainTarea4.c: 254:     }
 }
 [e :U 390 ]
-"257
-[; ;mainTarea4.c: 257: }
+"255
+[; ;mainTarea4.c: 255: }
 }
 [e :U 389 ]
-"258
-[; ;mainTarea4.c: 258: }
+"256
+[; ;mainTarea4.c: 256: }
 [e :UE 371 ]
 }

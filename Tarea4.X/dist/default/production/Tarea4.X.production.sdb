@@ -29,7 +29,7 @@
 [v ___omul __omul `(uo  1 e 8 0 ]
 "86 C:\Users\devan\Desktop\Tarea4.X\mainTarea4.c
 [v _main main `(v  1 e 1 0 ]
-"152
+"151
 [v _isr isr `IIH(v  1 e 1 0 ]
 [s S59 . 1 `uc 1 LATB0 1 0 :1:0 
 `uc 1 LATB1 1 0 :1:1 
@@ -222,10 +222,10 @@
 "86
 [v _main main `(v  1 e 1 0 ]
 {
-"150
+"149
 } 0
-"152
+"151
 [v _isr isr `IIH(v  1 e 1 0 ]
 {
-"258
+"256
 } 0

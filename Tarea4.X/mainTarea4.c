@@ -109,7 +109,6 @@ void main(void) {
     LATDbits.LD2 = 0;                   //  LED3
     LATDbits.LD3 = 0;                   //  LED4
     LATDbits.LD4 = 0;                   //  Alarma
-    LATDbits.LD5 = 0;                
 
     ////////////////////////////////////////////////////////////////////////////
     // SETUP GENERAL DE INTERRUPCIONES
@@ -157,7 +156,6 @@ void __interrupt() isr(void){
 
     if (INTCONbits.INT0IF == 1){        //  Se da la interrupcion INT0, que es la entrada de parada STOP
         stop = ~stop;                   //  Se intercambia el valor de stop
-        LATDbits.LD5 = ~LATDbits.LD5;
         INTCONbits.INT0IF = 0;          //  Se baja la bandera
     }
 
