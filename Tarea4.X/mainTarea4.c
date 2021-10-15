@@ -109,12 +109,13 @@ void main(void) {
     LATDbits.LD2 = 0;                   //  LED3
     LATDbits.LD3 = 0;                   //  LED4
     LATDbits.LD4 = 0;                   //  Alarma
+    LATDbits.LD5 = 0;                
 
     ////////////////////////////////////////////////////////////////////////////
     // SETUP GENERAL DE INTERRUPCIONES
     ////////////////////////////////////////////////////////////////////////////
 
-    RCONbits.IPEN     = 0;              //  No tenemos prioridad de interrupciones
+    RCONbits.IPEN     = 1;              //  No tenemos prioridad de interrupciones
     INTCONbits.GIEH   = 1;              //  Permite interrupciones no enmascaradas
     INTCONbits.GIEL   = 1;              //  Permite interrupciones perifericas no enmascaradas
 
@@ -156,6 +157,7 @@ void __interrupt() isr(void){
 
     if (INTCONbits.INT0IF == 1){        //  Se da la interrupcion INT0, que es la entrada de parada STOP
         stop = ~stop;                   //  Se intercambia el valor de stop
+        LATDbits.LD5 = ~LATDbits.LD5;
         INTCONbits.INT0IF = 0;          //  Se baja la bandera
     }
 
@@ -170,8 +172,6 @@ void __interrupt() isr(void){
         if (timer >= 152) {             //  Se dan o han pasado mas de 5 segs
             
             if (stop == 0){             //  Verifica que no este activa la parada
-            
-            if (INTCONbits.INT0IF == 0){            //  Verifica si no tenemos interrupcion INT0
 
                 if (cont >= 0) {                    //  Verifica que el numero de cajas sea 0 o mayor
                     LATDbits.LD4 = 0;               //  Se baja la alarma si cumple lo anterior
@@ -214,7 +214,7 @@ void __interrupt() isr(void){
                             break;
                        }
                     }
-                }    
+                
             }
         timer = 0;                                  //  Si se dan los 5s entonces debemos empezar a contar de nuevo, se pone en 0 el contador de overflows
             
@@ -224,26 +224,29 @@ void __interrupt() isr(void){
     ////////////////////////////////////////////////////////////////////////////
     // INTERRUPCION ENTRADA DE CAJA
     ////////////////////////////////////////////////////////////////////////////
-
-        if (INTCON3bits.INT1IF == 1 && stop == 0 ){             //  Interrupcion que entra una caja y ademas no tenemos parada
-            cont++;                                             //  Aumentamos el numero de cajas contadas
+        if (INTCON3bits.INT1IF == 1 ){             //  Interrupcion que entra una caja y ademas no tenemos parada
+            if (stop == 0) {
+            cont++;                                             //  Aumentamos el numero de cajas contadas si la parada no está activa
+            }
             INTCON3bits.INT1IF = 0;                             //  Reset de la bandera
         }
 
     ////////////////////////////////////////////////////////////////////////////
     // INTERRUPCION SALIDA DE CAJA
-    ////////////////////////////////////////////////////////////////////////////
-
-        if (INTCON3bits.INT2IF == 1 && stop == 0 ){             //  Interrupcion que sale una caja y ademas no tenemos parada
-            cont--;                                             //  Disminuimos el numero de cajas contadas
+    ///////////////////////////////////////////////////////////////////////////
+        if (INTCON3bits.INT2IF == 1 ){             //  Interrupcion que sale una caja y ademas no tenemos parada
+            if (stop == 0) {
+            cont--;                                             //  Disminuimos el numero de cajas contadas si la parada no está activa
+            }
             INTCON3bits.INT2IF = 0;                             //  Reset de la bandera
         }
-    }
+    
+  }
 
     ////////////////////////////////////////////////////////////////////////////
     // INTERRUPCION POR CASO SIN SENTIDO, CAJAS NEGATIVAS
     ////////////////////////////////////////////////////////////////////////////
-
+if (stop == 0) {
     if (cont < 0){              //  Cajas negattivas, todos los leds apagados excepto la alarma.
         LATDbits.LD0 = 0;       //  LED1 OFF
         LATDbits.LD1 = 0;       //  LED2 OFF
@@ -251,4 +254,5 @@ void __interrupt() isr(void){
         LATDbits.LD3 = 0;       //  LED4 OFF
         LATDbits.LD4 = 1;       //  Alarma ON
     }
+}
 }

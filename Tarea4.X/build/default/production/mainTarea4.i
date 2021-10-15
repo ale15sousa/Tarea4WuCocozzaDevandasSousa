@@ -5727,12 +5727,13 @@ void main(void) {
     LATDbits.LD2 = 0;
     LATDbits.LD3 = 0;
     LATDbits.LD4 = 0;
+    LATDbits.LD5 = 0;
 
 
 
 
 
-    RCONbits.IPEN = 0;
+    RCONbits.IPEN = 1;
     INTCONbits.GIEH = 1;
     INTCONbits.GIEL = 1;
 
@@ -5774,6 +5775,7 @@ void __attribute__((picinterrupt(("")))) isr(void){
 
     if (INTCONbits.INT0IF == 1){
         stop = ~stop;
+        LATDbits.LD5 = ~LATDbits.LD5;
         INTCONbits.INT0IF = 0;
     }
 
@@ -5788,8 +5790,6 @@ void __attribute__((picinterrupt(("")))) isr(void){
         if (timer >= 152) {
 
             if (stop == 0){
-
-            if (INTCONbits.INT0IF == 0){
 
                 if (cont >= 0) {
                     LATDbits.LD4 = 0;
@@ -5832,7 +5832,7 @@ void __attribute__((picinterrupt(("")))) isr(void){
                             break;
                        }
                     }
-                }
+
             }
         timer = 0;
 
@@ -5842,26 +5842,29 @@ void __attribute__((picinterrupt(("")))) isr(void){
 
 
 
-
-        if (INTCON3bits.INT1IF == 1 && stop == 0 ){
+        if (INTCON3bits.INT1IF == 1 ){
+            if (stop == 0) {
             cont++;
+            }
             INTCON3bits.INT1IF = 0;
         }
 
 
 
 
-
-        if (INTCON3bits.INT2IF == 1 && stop == 0 ){
+        if (INTCON3bits.INT2IF == 1 ){
+            if (stop == 0) {
             cont--;
+            }
             INTCON3bits.INT2IF = 0;
         }
-    }
+
+  }
 
 
 
 
-
+if (stop == 0) {
     if (cont < 0){
         LATDbits.LD0 = 0;
         LATDbits.LD1 = 0;
@@ -5869,4 +5872,5 @@ void __attribute__((picinterrupt(("")))) isr(void){
         LATDbits.LD3 = 0;
         LATDbits.LD4 = 1;
     }
+}
 }
